@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "wheels",
+    "control",
+    "camera",
+    "control_grpc",
+]

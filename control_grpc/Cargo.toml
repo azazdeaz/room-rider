@@ -1,0 +1,21 @@
+[package]
+name = "control-grpc"
+version = "0.1.0"
+authors = ["pi"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wheels = { path = "../wheels" }
+tonic = "0.2"
+prost = "0.6"
+tokio = { version = "0.2", features = ["macros"] }
+tonic-build = "0.2"
+
+[build-dependencies]
+tonic-build = "0.2"
+
+[[bin]]
+name = "gen"
+path = "build.rs"

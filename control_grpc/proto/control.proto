@@ -1,0 +1,15 @@
+syntax = "proto3";
+package control;
+
+service Control {
+    // Our SayHello rpc accepts HelloRequests and returns HelloReplies
+    rpc SetSpeed (WheelSpeeds) returns (Empty);
+}
+
+message WheelSpeeds {
+    // Request message contains the name to be greeted
+    float left = 1;
+    float right = 2;
+}
+
+message Empty {}
