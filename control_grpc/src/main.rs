@@ -72,7 +72,8 @@ impl Control for MyControl {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let addr = "[::1]:50051".parse()?;
+    let addr = "0.0.0.0:50051".parse()?;
+    // println!("IP{}",addr.ip());
     let controller = MyControl::default();
     Server::builder()
         .add_service(ControlServer::new(controller))
