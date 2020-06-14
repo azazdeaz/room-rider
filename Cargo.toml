@@ -5,5 +5,5 @@ members = [
     "control",
     "camera",
     "control_grpc",
-    "testserver",
+    "joi",
 ]
