@@ -1,5 +1,4 @@
 use rust_gpiozero::{Motor, LED};
-use std::thread;
 
 const GPIO_EEP: u8 = 26;
 const GPIO_IN1: u8 = 5;
