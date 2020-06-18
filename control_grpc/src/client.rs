@@ -123,8 +123,8 @@ async fn send_command(joi_x: f32, joi_y: f32, client: &mut ControlClient<Channel
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // let mut client = ControlClient::connect("http://192.168.50.222:50051").await?;
-    let mut client = ControlClient::connect("http://127.0.0.1:50051").await?;
+    let mut client = ControlClient::connect("http://192.168.50.222:50051").await?;
+    // let mut client = ControlClient::connect("http://127.0.0.1:50051").await?;
 
     let request = tonic::Request::new(WheelSpeeds {
         left: 0.0,
@@ -143,24 +143,29 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut joi_x = 0.0;
     let mut joi_y = 0.0;
 
-    
+    let small_to_zero = |x: f32| if x.abs() < 0.01 { 0.0 } else { x };
 
     loop {
         // Examine new events
+        let mut changed = false;
         while let Some(gilrs::Event { id, event, time }) = gilrs.next_event() {
             // println!("{:?} New event from {}: {:?}", time, id, event);
-
             if let EventType::AxisChanged(Axis::LeftStickX, speed, _) = event {
-                joi_x = speed;
+                changed = true;
+                joi_x = small_to_zero(speed);
                 // println!("X={:?}", speed);
-                send_command(joi_x, joi_y, &mut client).await;
+                // send_command(joi_x, joi_y, &mut client).await;
             }
             if let EventType::AxisChanged(Axis::LeftStickY, speed, _) = event {
-                
-                joi_y = speed;
+                changed = true;
+                joi_y = small_to_zero(speed);
                 // println!("Y={:?}", speed);
-                send_command(joi_x, joi_y, &mut client).await;
+                // send_command(joi_x, joi_y, &mut client).await;
             }
+        }
+
+        if changed {
+            send_command(joi_x, joi_y, &mut client).await;
         }
     }
 
