@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+// The greeting service definition.
+service ImageStreamer {
+  // Sends a greeting
+  rpc StreamImages (Empty) returns (stream Image) {}
+}
+
+message Image {
+    uint32 width = 1;
+    uint32 height = 2;
+    bytes image_data = 3;
+}
+
+message Empty {}
