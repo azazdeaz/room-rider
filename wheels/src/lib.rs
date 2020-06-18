@@ -51,10 +51,19 @@ impl Wheels {
         println!("stop");
     }
     pub fn speed(&mut self, left: f64, right: f64) {
-        self.eep.on();
-        // TODO backward
-        self.left.set_speed(left);
-        self.right.set_speed(right);
-        println!("stop");
+        if left == 0.0 && right == 0.0 {
+            self.stop();
+        }
+        else {
+            let min_speed = 0.15;
+            let left = (min_speed + left.abs() * (1.0 - min_speed)) * left.signum();
+            let right = (min_speed + right.abs() * (1.0 - min_speed)) * right.signum();
+            println!("speed {} {}", left, right);
+            self.left.set_speed(left.abs());
+            self.right.set_speed(right.abs());
+            self.eep.on();
+            if left > 0.0 {self.left.forward() } else {self.left.backward()};
+            if right > 0.0 {self.right.forward() } else {self.right.backward()};
+        }
     }
 }
