@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package things;
+
 // The greeting service definition.
 service ImageStreamer {
   // Sends a greeting

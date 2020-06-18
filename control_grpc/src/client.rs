@@ -73,7 +73,9 @@ async fn event_loop(client: &mut ControlClient<Channel>) {
 pub mod control {
     tonic::include_proto!("control");
 }
-
+pub mod things {
+    tonic::include_proto!("things");
+}
 fn axes_to_speeds(joi_x: f32, joi_y: f32) -> (f32, f32) {
     let pivot_y_limit: f32 = 0.25;
 			
