@@ -1,0 +1,10 @@
+version: '3'
+services:
+  envoy:
+    build:
+      context: ./dash/
+      dockerfile: ./Dockerfile
+    image: dash
+    ports:
+      - "8080:8080"
+ 
