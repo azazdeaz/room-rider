@@ -35,8 +35,10 @@ class ImageStreamer(things_pb2_grpc.ImageStreamer):
                     # Rewind the stream and send the image data over the wire
                     stream.seek(0)
                     message = stream.read()
-                    things_pb2.Image(width=width, height=height, image_data=message)
+                    message = things_pb2.Image(width=width, height=height, image_data=message)
+                    yield message
                     print("image sent")
+
 
                     # Reset the stream for the next capture
                     stream.seek(0)
@@ -51,7 +53,8 @@ def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
   things_pb2_grpc.add_ImageStreamerServicer_to_server(
       ImageStreamer(), server)
-  server.add_insecure_port('[::]:50052')
+  server.add_insecure_port('0.0.0.0:50052')
+  print('connected')
   server.start()
   server.wait_for_termination()
 

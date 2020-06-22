@@ -15,7 +15,7 @@ class ImageStreamerStub(object):
             channel: A grpc.Channel.
         """
         self.StreamImages = channel.unary_stream(
-                '/ImageStreamer/StreamImages',
+                '/things.ImageStreamer/StreamImages',
                 request_serializer=things__pb2.Empty.SerializeToString,
                 response_deserializer=things__pb2.Image.FromString,
                 )
@@ -42,7 +42,7 @@ def add_ImageStreamerServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'ImageStreamer', rpc_method_handlers)
+            'things.ImageStreamer', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -61,7 +61,7 @@ class ImageStreamer(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/ImageStreamer/StreamImages',
+        return grpc.experimental.unary_stream(request, target, '/things.ImageStreamer/StreamImages',
             things__pb2.Empty.SerializeToString,
             things__pb2.Image.FromString,
             options, channel_credentials,
