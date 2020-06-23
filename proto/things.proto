@@ -8,10 +8,59 @@ service ImageStreamer {
   rpc StreamImages (Empty) returns (stream Image) {}
 }
 
+message Ping {
+  string content = 1;
+}
+
+service ProcessedImageStreamer {
+  rpc StreamProcessedImages (Empty) returns (stream ProcessedImage) {} 
+  rpc Echo(Ping) returns (Ping) {}
+  rpc ListFeatures(Ping) returns (stream Ping) {}
+}
+
 message Image {
-    uint32 width = 1;
-    uint32 height = 2;
-    bytes image_data = 3;
+  
+  uint32 width = 1;
+  uint32 height = 2;
+  bytes image_data = 3;
 }
 
 message Empty {}
+
+message ApriltagDetection {
+  message Point {
+    float x = 1;
+    float y = 2;
+  }
+
+  message Corners {
+    Point a = 1;
+    Point b = 2;
+    Point c = 3;
+    Point d = 4;
+  }
+
+  message Homography {
+    float h11 = 1;
+    float h12 = 2;
+    float h13 = 3;
+    float h21 = 4;
+    float h22 = 5;
+    float h23 = 6;
+    float h31 = 7;
+    float h32 = 8;
+    float h33 = 9;
+  }
+
+  uint32 id = 1;
+  float hamming = 2;
+  float decision_margin = 3;
+  Point center = 4;
+  Corners corners = 5;
+  Homography homography = 6;
+}
+
+message ProcessedImage {
+  Image image = 1;
+  repeated ApriltagDetection apriltag_detections = 2;
+}
