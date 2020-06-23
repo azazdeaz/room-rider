@@ -1,0 +1,38 @@
+{
+  "name": "genstubs",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Polgár András <azazdeaz@gmail.com>",
+  "homepage": "https://github.com/azazdeaz/ros-mirrors#readme",
+  "license": "ISC",
+  "main": "lib/genstubs.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azazdeaz/ros-mirrors.git"
+  },
+  "scripts": {
+    "build": "tsc -d",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/azazdeaz/ros-mirrors/issues"
+  },
+  "dependencies": {
+    "grpc-tools": "^1.8.1",
+    "grpc_tools_node_protoc_ts": "^2.5.10",
+    "mkdirp": "^1.0.4",
+    "shelljs": "^0.8.3",
+    "uninstall": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/mkdirp": "^1.0.1",
+    "typescript": "^3.8.3"
+  }
+}

@@ -2,11 +2,14 @@
   "name": "dash",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/genstubs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
+    "gen": "tsc genstubs.ts && node genstubs.js && rm genstubs.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +20,17 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.3.19",
+    "@types/google-protobuf": "^3.7.2",
     "babel-loader": "^8.1.0",
     "fork-ts-checker-webpack-plugin": "^5.0.1",
+    "grpc-tools": "^1.8.1",
+    "grpc_tools_node_protoc_ts": "^2.5.10",
+    "lerna": "^3.22.1",
     "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "grpc-web": "^1.1.0"
   }
 }

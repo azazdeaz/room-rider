@@ -41,4 +41,4 @@ static_resources:
     type: logical_dns
     http2_protocol_options: {}
     lb_policy: round_robin
-    hosts: [{ socket_address: { address: node-server, port_value: 9090 }}]
+    hosts: [{ socket_address: { address: 192.168.50.222, port_value: 50052 }}]
