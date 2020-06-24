@@ -1,14 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react'
 // import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo';
+import { Button } from '@storybook/react/demo'
 
-import { Image as ImageMsg, Empty } from './stubs/things_pb'
-import { ImageStreamerClient } from './stubs/things_grpc_web_pb'
+import { ProcessedImage, Empty, Ping } from './stubs/things_pb'
+import { ProcessedImageStreamerPromiseClient } from './stubs/things_grpc_web_pb'
 
 export default {
   title: 'Camera',
   component: Button,
-};
+}
+
+// @ts-ignore
+const enableDevTools = window.__GRPCWEB_DEVTOOLS__ || (() => {})
 
 function writeToContextWithURL(
   ctx: CanvasRenderingContext2D,
@@ -28,20 +31,18 @@ let __r = 0
 
 export const Default = () => {
   const canvas = useRef<HTMLCanvasElement>(null)
-  const lastImage = useRef<ImageMsg>(null)
-  const [[width, height], setImageSize] = useState<[number, number]>([0, 0])
+  const lastImage = useRef<ProcessedImage>(null)
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
   useEffect(() => {
-    const service = new ImageStreamerClient("http://localhost:8080")
-
-    const stream = service.streamImages(new Empty())
-    stream.on('data', function (image) {
-      setImageSize([image.getWidth(), image.getHeight()])
-      if (!canvas.current) {
-        return
-      }
+    const service = new ProcessedImageStreamerPromiseClient('http://localhost:8080')
+    enableDevTools([service])
+    service.echo(new Ping()).then(r => console.log("eeeee", r))
+    const stream = service.streamProcessedImages(new Empty())
+    stream.on('data', function (processedImage) {
       if (++__r % 1 === 0) {
         // @ts-ignore
-        lastImage.current = image
+        lastImage.current = processedImage
       }
     })
     stream.on('status', function (status) {
@@ -52,7 +53,6 @@ export const Default = () => {
     stream.on('end', function () {
       console.log('stream end signal')
     })
-    
 
     return () => stream.cancel()
   }, [])
@@ -61,7 +61,13 @@ export const Default = () => {
     function draw() {
       if (lastImage.current && canvas.current) {
         // console.time('render pb')
-        const image = lastImage.current
+        
+        const image = lastImage.current.getImage()
+        if (!image) {
+          return
+        }
+        setWidth(image.getWidth())
+        setHeight(image.getHeight())
         const ctx = canvas.current.getContext('2d')!
         writeToContextWithURL(ctx, image.getImageData_asB64())
         // console.timeEnd('render pb')
@@ -69,9 +75,9 @@ export const Default = () => {
       idRaf = requestAnimationFrame(() => draw())
     }
     let idRaf = requestAnimationFrame(() => draw())
-    
+
     return () => cancelAnimationFrame(idRaf)
   }, [])
 
   return <canvas ref={canvas} width={width} height={height} />
-};
+}
