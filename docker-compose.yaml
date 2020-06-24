@@ -7,4 +7,11 @@ services:
     image: dash
     ports:
       - "8080:8080"
+  
+  rust:
+    image: rust:latest
+    tty: true
+    volumes:
+      - .:/opt/app:delegated
+    working_dir: /opt/app
  

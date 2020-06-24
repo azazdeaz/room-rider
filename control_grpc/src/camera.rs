@@ -155,7 +155,6 @@ pub fn detect(loaded_image: image::DynamicImage) -> Vec<ApriltagDetection> {
                     h33: homography[8] as f32,
                 }),
             };
-            println!("msg {:?}", msg);
             msg
         })
         .collect();
