@@ -7,6 +7,8 @@ import things_pb2
 import things_pb2_grpc
 
 
+# width = 1280
+# height = 960
 width = 640
 height = 480
 
@@ -14,7 +16,7 @@ class ImageStreamer(things_pb2_grpc.ImageStreamer):
 
     def StreamImages(self, request, context):
         try:
-            with picamera.PiCamera() as camera:
+            with picamera.PiCamera(resolution=(width, height), framerate=1) as camera:
                 camera.resolution = (width, height)
                 print("camera", camera)
                 # Start a preview and let the camera warm up for 2 seconds
@@ -53,7 +55,7 @@ def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
   things_pb2_grpc.add_ImageStreamerServicer_to_server(
       ImageStreamer(), server)
-  server.add_insecure_port('0.0.0.0:50052')
+  server.add_insecure_port('0.0.0.0:50053')
   print('connected')
   server.start()
   server.wait_for_termination()

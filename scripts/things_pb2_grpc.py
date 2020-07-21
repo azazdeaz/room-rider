@@ -66,3 +66,187 @@ class ImageStreamer(object):
             things__pb2.Image.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class ProcessedImageStreamerStub(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.StreamProcessedImages = channel.unary_stream(
+                '/things.ProcessedImageStreamer/StreamProcessedImages',
+                request_serializer=things__pb2.Empty.SerializeToString,
+                response_deserializer=things__pb2.ProcessedImage.FromString,
+                )
+        self.Echo = channel.unary_unary(
+                '/things.ProcessedImageStreamer/Echo',
+                request_serializer=things__pb2.Ping.SerializeToString,
+                response_deserializer=things__pb2.Ping.FromString,
+                )
+        self.ListFeatures = channel.unary_stream(
+                '/things.ProcessedImageStreamer/ListFeatures',
+                request_serializer=things__pb2.Ping.SerializeToString,
+                response_deserializer=things__pb2.Ping.FromString,
+                )
+
+
+class ProcessedImageStreamerServicer(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def StreamProcessedImages(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Echo(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFeatures(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ProcessedImageStreamerServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'StreamProcessedImages': grpc.unary_stream_rpc_method_handler(
+                    servicer.StreamProcessedImages,
+                    request_deserializer=things__pb2.Empty.FromString,
+                    response_serializer=things__pb2.ProcessedImage.SerializeToString,
+            ),
+            'Echo': grpc.unary_unary_rpc_method_handler(
+                    servicer.Echo,
+                    request_deserializer=things__pb2.Ping.FromString,
+                    response_serializer=things__pb2.Ping.SerializeToString,
+            ),
+            'ListFeatures': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListFeatures,
+                    request_deserializer=things__pb2.Ping.FromString,
+                    response_serializer=things__pb2.Ping.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'things.ProcessedImageStreamer', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class ProcessedImageStreamer(object):
+    """Missing associated documentation comment in .proto file"""
+
+    @staticmethod
+    def StreamProcessedImages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/things.ProcessedImageStreamer/StreamProcessedImages',
+            things__pb2.Empty.SerializeToString,
+            things__pb2.ProcessedImage.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Echo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/things.ProcessedImageStreamer/Echo',
+            things__pb2.Ping.SerializeToString,
+            things__pb2.Ping.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFeatures(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/things.ProcessedImageStreamer/ListFeatures',
+            things__pb2.Ping.SerializeToString,
+            things__pb2.Ping.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class ApriltagStreamerStub(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.StreamApriltags = channel.unary_stream(
+                '/things.ApriltagStreamer/StreamApriltags',
+                request_serializer=things__pb2.Empty.SerializeToString,
+                response_deserializer=things__pb2.ApriltagDetection.FromString,
+                )
+
+
+class ApriltagStreamerServicer(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def StreamApriltags(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_ApriltagStreamerServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'StreamApriltags': grpc.unary_stream_rpc_method_handler(
+                    servicer.StreamApriltags,
+                    request_deserializer=things__pb2.Empty.FromString,
+                    response_serializer=things__pb2.ApriltagDetection.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'things.ApriltagStreamer', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class ApriltagStreamer(object):
+    """Missing associated documentation comment in .proto file"""
+
+    @staticmethod
+    def StreamApriltags(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/things.ApriltagStreamer/StreamApriltags',
+            things__pb2.Empty.SerializeToString,
+            things__pb2.ApriltagDetection.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -18,6 +18,10 @@ service ProcessedImageStreamer {
   rpc ListFeatures(Ping) returns (stream Ping) {}
 }
 
+service ApriltagStreamer {
+  rpc StreamApriltags (Empty) returns (stream ApriltagDetection) {}
+}
+
 message Image {
   
   uint32 width = 1;
@@ -52,12 +56,25 @@ message ApriltagDetection {
     float h33 = 9;
   }
 
+  message Translation {
+    float x = 1;
+    float y = 2;
+    float z = 3;
+  }
+
+  message EstimatedPose {
+    Translation translation = 1;
+    repeated float rotation = 2;
+    float error = 3; 
+  }
+
   uint32 id = 1;
   float hamming = 2;
   float decision_margin = 3;
   Point center = 4;
   Corners corners = 5;
   Homography homography = 6;
+  EstimatedPose pose  = 7;
 }
 
 message ProcessedImage {

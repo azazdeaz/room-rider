@@ -4,3 +4,5 @@ venv
 calib_imgs
 .ipynb_checkpoints
 __pycache__
+*.pnm
+*.ps

@@ -15,7 +15,7 @@ pub mod control {
 }
 
 // #[derive(Debug, Default)]
-pub struct MyControl {
+pub struct MyControl 
     wheels: Arc<Mutex<Wheels>>,
 }
 

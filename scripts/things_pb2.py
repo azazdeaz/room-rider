@@ -18,10 +18,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='things',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0cthings.proto\x12\x06things\":\n\x05Image\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\x12\x12\n\nimage_data\x18\x03 \x01(\x0c\"\x07\n\x05\x45mpty2A\n\rImageStreamer\x12\x30\n\x0cStreamImages\x12\r.things.Empty\x1a\r.things.Image\"\x00\x30\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0cthings.proto\x12\x06things\"\x17\n\x04Ping\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\":\n\x05Image\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\x12\x12\n\nimage_data\x18\x03 \x01(\x0c\"\x07\n\x05\x45mpty\"\x9c\x06\n\x11\x41priltagDetection\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0f\n\x07hamming\x18\x02 \x01(\x02\x12\x17\n\x0f\x64\x65\x63ision_margin\x18\x03 \x01(\x02\x12/\n\x06\x63\x65nter\x18\x04 \x01(\x0b\x32\x1f.things.ApriltagDetection.Point\x12\x32\n\x07\x63orners\x18\x05 \x01(\x0b\x32!.things.ApriltagDetection.Corners\x12\x38\n\nhomography\x18\x06 \x01(\x0b\x32$.things.ApriltagDetection.Homography\x12\x35\n\x04pose\x18\x07 \x01(\x0b\x32\'.things.ApriltagDetection.EstimatedPose\x1a\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x1a\xb9\x01\n\x07\x43orners\x12*\n\x01\x61\x18\x01 \x01(\x0b\x32\x1f.things.ApriltagDetection.Point\x12*\n\x01\x62\x18\x02 \x01(\x0b\x32\x1f.things.ApriltagDetection.Point\x12*\n\x01\x63\x18\x03 \x01(\x0b\x32\x1f.things.ApriltagDetection.Point\x12*\n\x01\x64\x18\x04 \x01(\x0b\x32\x1f.things.ApriltagDetection.Point\x1a\x81\x01\n\nHomography\x12\x0b\n\x03h11\x18\x01 \x01(\x02\x12\x0b\n\x03h12\x18\x02 \x01(\x02\x12\x0b\n\x03h13\x18\x03 \x01(\x02\x12\x0b\n\x03h21\x18\x04 \x01(\x02\x12\x0b\n\x03h22\x18\x05 \x01(\x02\x12\x0b\n\x03h23\x18\x06 \x01(\x02\x12\x0b\n\x03h31\x18\x07 \x01(\x02\x12\x0b\n\x03h32\x18\x08 \x01(\x02\x12\x0b\n\x03h33\x18\t \x01(\x02\x1a.\n\x0bTranslation\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\x1al\n\rEstimatedPose\x12:\n\x0btranslation\x18\x01 \x01(\x0b\x32%.things.ApriltagDetection.Translation\x12\x10\n\x08rotation\x18\x02 \x03(\x02\x12\r\n\x05\x65rror\x18\x03 \x01(\x02\"f\n\x0eProcessedImage\x12\x1c\n\x05image\x18\x01 \x01(\x0b\x32\r.things.Image\x12\x36\n\x13\x61priltag_detections\x18\x02 \x03(\x0b\x32\x19.things.ApriltagDetection2A\n\rImageStreamer\x12\x30\n\x0cStreamImages\x12\r.things.Empty\x1a\r.things.Image\"\x00\x30\x01\x32\xb2\x01\n\x16ProcessedImageStreamer\x12\x42\n\x15StreamProcessedImages\x12\r.things.Empty\x1a\x16.things.ProcessedImage\"\x00\x30\x01\x12$\n\x04\x45\x63ho\x12\x0c.things.Ping\x1a\x0c.things.Ping\"\x00\x12.\n\x0cListFeatures\x12\x0c.things.Ping\x1a\x0c.things.Ping\"\x00\x30\x01\x32S\n\x10\x41priltagStreamer\x12?\n\x0fStreamApriltags\x12\r.things.Empty\x1a\x19.things.ApriltagDetection\"\x00\x30\x01\x62\x06proto3'
 )
 
 
+
+
+_PING = _descriptor.Descriptor(
+  name='Ping',
+  full_name='things.Ping',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='content', full_name='things.Ping.content', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=24,
+  serialized_end=47,
+)
 
 
 _IMAGE = _descriptor.Descriptor(
@@ -64,8 +95,8 @@ _IMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24,
-  serialized_end=82,
+  serialized_start=49,
+  serialized_end=107,
 )
 
 
@@ -88,13 +119,412 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=84,
-  serialized_end=91,
+  serialized_start=109,
+  serialized_end=116,
 )
 
+
+_APRILTAGDETECTION_POINT = _descriptor.Descriptor(
+  name='Point',
+  full_name='things.ApriltagDetection.Point',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='things.ApriltagDetection.Point.x', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='things.ApriltagDetection.Point.y', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=408,
+  serialized_end=437,
+)
+
+_APRILTAGDETECTION_CORNERS = _descriptor.Descriptor(
+  name='Corners',
+  full_name='things.ApriltagDetection.Corners',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='a', full_name='things.ApriltagDetection.Corners.a', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='b', full_name='things.ApriltagDetection.Corners.b', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='c', full_name='things.ApriltagDetection.Corners.c', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='d', full_name='things.ApriltagDetection.Corners.d', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=440,
+  serialized_end=625,
+)
+
+_APRILTAGDETECTION_HOMOGRAPHY = _descriptor.Descriptor(
+  name='Homography',
+  full_name='things.ApriltagDetection.Homography',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='h11', full_name='things.ApriltagDetection.Homography.h11', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h12', full_name='things.ApriltagDetection.Homography.h12', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h13', full_name='things.ApriltagDetection.Homography.h13', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h21', full_name='things.ApriltagDetection.Homography.h21', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h22', full_name='things.ApriltagDetection.Homography.h22', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h23', full_name='things.ApriltagDetection.Homography.h23', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h31', full_name='things.ApriltagDetection.Homography.h31', index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h32', full_name='things.ApriltagDetection.Homography.h32', index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='h33', full_name='things.ApriltagDetection.Homography.h33', index=8,
+      number=9, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=628,
+  serialized_end=757,
+)
+
+_APRILTAGDETECTION_TRANSLATION = _descriptor.Descriptor(
+  name='Translation',
+  full_name='things.ApriltagDetection.Translation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='things.ApriltagDetection.Translation.x', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='things.ApriltagDetection.Translation.y', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='z', full_name='things.ApriltagDetection.Translation.z', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=759,
+  serialized_end=805,
+)
+
+_APRILTAGDETECTION_ESTIMATEDPOSE = _descriptor.Descriptor(
+  name='EstimatedPose',
+  full_name='things.ApriltagDetection.EstimatedPose',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='translation', full_name='things.ApriltagDetection.EstimatedPose.translation', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='rotation', full_name='things.ApriltagDetection.EstimatedPose.rotation', index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='things.ApriltagDetection.EstimatedPose.error', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=807,
+  serialized_end=915,
+)
+
+_APRILTAGDETECTION = _descriptor.Descriptor(
+  name='ApriltagDetection',
+  full_name='things.ApriltagDetection',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='things.ApriltagDetection.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hamming', full_name='things.ApriltagDetection.hamming', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='decision_margin', full_name='things.ApriltagDetection.decision_margin', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='center', full_name='things.ApriltagDetection.center', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='corners', full_name='things.ApriltagDetection.corners', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='homography', full_name='things.ApriltagDetection.homography', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pose', full_name='things.ApriltagDetection.pose', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_APRILTAGDETECTION_POINT, _APRILTAGDETECTION_CORNERS, _APRILTAGDETECTION_HOMOGRAPHY, _APRILTAGDETECTION_TRANSLATION, _APRILTAGDETECTION_ESTIMATEDPOSE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=119,
+  serialized_end=915,
+)
+
+
+_PROCESSEDIMAGE = _descriptor.Descriptor(
+  name='ProcessedImage',
+  full_name='things.ProcessedImage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='image', full_name='things.ProcessedImage.image', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='apriltag_detections', full_name='things.ProcessedImage.apriltag_detections', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=917,
+  serialized_end=1019,
+)
+
+_APRILTAGDETECTION_POINT.containing_type = _APRILTAGDETECTION
+_APRILTAGDETECTION_CORNERS.fields_by_name['a'].message_type = _APRILTAGDETECTION_POINT
+_APRILTAGDETECTION_CORNERS.fields_by_name['b'].message_type = _APRILTAGDETECTION_POINT
+_APRILTAGDETECTION_CORNERS.fields_by_name['c'].message_type = _APRILTAGDETECTION_POINT
+_APRILTAGDETECTION_CORNERS.fields_by_name['d'].message_type = _APRILTAGDETECTION_POINT
+_APRILTAGDETECTION_CORNERS.containing_type = _APRILTAGDETECTION
+_APRILTAGDETECTION_HOMOGRAPHY.containing_type = _APRILTAGDETECTION
+_APRILTAGDETECTION_TRANSLATION.containing_type = _APRILTAGDETECTION
+_APRILTAGDETECTION_ESTIMATEDPOSE.fields_by_name['translation'].message_type = _APRILTAGDETECTION_TRANSLATION
+_APRILTAGDETECTION_ESTIMATEDPOSE.containing_type = _APRILTAGDETECTION
+_APRILTAGDETECTION.fields_by_name['center'].message_type = _APRILTAGDETECTION_POINT
+_APRILTAGDETECTION.fields_by_name['corners'].message_type = _APRILTAGDETECTION_CORNERS
+_APRILTAGDETECTION.fields_by_name['homography'].message_type = _APRILTAGDETECTION_HOMOGRAPHY
+_APRILTAGDETECTION.fields_by_name['pose'].message_type = _APRILTAGDETECTION_ESTIMATEDPOSE
+_PROCESSEDIMAGE.fields_by_name['image'].message_type = _IMAGE
+_PROCESSEDIMAGE.fields_by_name['apriltag_detections'].message_type = _APRILTAGDETECTION
+DESCRIPTOR.message_types_by_name['Ping'] = _PING
 DESCRIPTOR.message_types_by_name['Image'] = _IMAGE
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
+DESCRIPTOR.message_types_by_name['ApriltagDetection'] = _APRILTAGDETECTION
+DESCRIPTOR.message_types_by_name['ProcessedImage'] = _PROCESSEDIMAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Ping = _reflection.GeneratedProtocolMessageType('Ping', (_message.Message,), {
+  'DESCRIPTOR' : _PING,
+  '__module__' : 'things_pb2'
+  # @@protoc_insertion_point(class_scope:things.Ping)
+  })
+_sym_db.RegisterMessage(Ping)
 
 Image = _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), {
   'DESCRIPTOR' : _IMAGE,
@@ -110,6 +540,60 @@ Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Empty)
 
+ApriltagDetection = _reflection.GeneratedProtocolMessageType('ApriltagDetection', (_message.Message,), {
+
+  'Point' : _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
+    'DESCRIPTOR' : _APRILTAGDETECTION_POINT,
+    '__module__' : 'things_pb2'
+    # @@protoc_insertion_point(class_scope:things.ApriltagDetection.Point)
+    })
+  ,
+
+  'Corners' : _reflection.GeneratedProtocolMessageType('Corners', (_message.Message,), {
+    'DESCRIPTOR' : _APRILTAGDETECTION_CORNERS,
+    '__module__' : 'things_pb2'
+    # @@protoc_insertion_point(class_scope:things.ApriltagDetection.Corners)
+    })
+  ,
+
+  'Homography' : _reflection.GeneratedProtocolMessageType('Homography', (_message.Message,), {
+    'DESCRIPTOR' : _APRILTAGDETECTION_HOMOGRAPHY,
+    '__module__' : 'things_pb2'
+    # @@protoc_insertion_point(class_scope:things.ApriltagDetection.Homography)
+    })
+  ,
+
+  'Translation' : _reflection.GeneratedProtocolMessageType('Translation', (_message.Message,), {
+    'DESCRIPTOR' : _APRILTAGDETECTION_TRANSLATION,
+    '__module__' : 'things_pb2'
+    # @@protoc_insertion_point(class_scope:things.ApriltagDetection.Translation)
+    })
+  ,
+
+  'EstimatedPose' : _reflection.GeneratedProtocolMessageType('EstimatedPose', (_message.Message,), {
+    'DESCRIPTOR' : _APRILTAGDETECTION_ESTIMATEDPOSE,
+    '__module__' : 'things_pb2'
+    # @@protoc_insertion_point(class_scope:things.ApriltagDetection.EstimatedPose)
+    })
+  ,
+  'DESCRIPTOR' : _APRILTAGDETECTION,
+  '__module__' : 'things_pb2'
+  # @@protoc_insertion_point(class_scope:things.ApriltagDetection)
+  })
+_sym_db.RegisterMessage(ApriltagDetection)
+_sym_db.RegisterMessage(ApriltagDetection.Point)
+_sym_db.RegisterMessage(ApriltagDetection.Corners)
+_sym_db.RegisterMessage(ApriltagDetection.Homography)
+_sym_db.RegisterMessage(ApriltagDetection.Translation)
+_sym_db.RegisterMessage(ApriltagDetection.EstimatedPose)
+
+ProcessedImage = _reflection.GeneratedProtocolMessageType('ProcessedImage', (_message.Message,), {
+  'DESCRIPTOR' : _PROCESSEDIMAGE,
+  '__module__' : 'things_pb2'
+  # @@protoc_insertion_point(class_scope:things.ProcessedImage)
+  })
+_sym_db.RegisterMessage(ProcessedImage)
+
 
 
 _IMAGESTREAMER = _descriptor.ServiceDescriptor(
@@ -118,8 +602,8 @@ _IMAGESTREAMER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=93,
-  serialized_end=158,
+  serialized_start=1021,
+  serialized_end=1086,
   methods=[
   _descriptor.MethodDescriptor(
     name='StreamImages',
@@ -134,5 +618,71 @@ _IMAGESTREAMER = _descriptor.ServiceDescriptor(
 _sym_db.RegisterServiceDescriptor(_IMAGESTREAMER)
 
 DESCRIPTOR.services_by_name['ImageStreamer'] = _IMAGESTREAMER
+
+
+_PROCESSEDIMAGESTREAMER = _descriptor.ServiceDescriptor(
+  name='ProcessedImageStreamer',
+  full_name='things.ProcessedImageStreamer',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=1089,
+  serialized_end=1267,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='StreamProcessedImages',
+    full_name='things.ProcessedImageStreamer.StreamProcessedImages',
+    index=0,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_PROCESSEDIMAGE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Echo',
+    full_name='things.ProcessedImageStreamer.Echo',
+    index=1,
+    containing_service=None,
+    input_type=_PING,
+    output_type=_PING,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListFeatures',
+    full_name='things.ProcessedImageStreamer.ListFeatures',
+    index=2,
+    containing_service=None,
+    input_type=_PING,
+    output_type=_PING,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_PROCESSEDIMAGESTREAMER)
+
+DESCRIPTOR.services_by_name['ProcessedImageStreamer'] = _PROCESSEDIMAGESTREAMER
+
+
+_APRILTAGSTREAMER = _descriptor.ServiceDescriptor(
+  name='ApriltagStreamer',
+  full_name='things.ApriltagStreamer',
+  file=DESCRIPTOR,
+  index=2,
+  serialized_options=None,
+  serialized_start=1269,
+  serialized_end=1352,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='StreamApriltags',
+    full_name='things.ApriltagStreamer.StreamApriltags',
+    index=0,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_APRILTAGDETECTION,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_APRILTAGSTREAMER)
+
+DESCRIPTOR.services_by_name['ApriltagStreamer'] = _APRILTAGSTREAMER
 
 # @@protoc_insertion_point(module_scope)
