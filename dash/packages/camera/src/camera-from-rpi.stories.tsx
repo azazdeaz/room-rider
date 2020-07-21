@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 // import { action } from '@storybook/addon-actions';
-import { Button } from '@storybook/react/demo'
+import { DownloadButton } from './DownloadButton'
 
 import { Image as ImageMsg, Empty, Ping } from './stubs/things_pb'
 import { ImageStreamerPromiseClient } from './stubs/things_grpc_web_pb'
+import { DirectionalLightShadow } from 'three'
 
 export default {
   title: 'Camera',
-  component: Button,
 }
 
 // @ts-ignore
@@ -34,10 +34,14 @@ export const Raw = () => {
   const lastImage = useRef<ImageMsg>(null)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
+  const getBase64 = useCallback(() => {
+    if (!lastImage.current) {
+      return ''
+    }
+    return lastImage.current.getImageData_asB64()
+  }, [])
   useEffect(() => {
-    const service = new ImageStreamerPromiseClient(
-      'http://127.0.0.1:8080',
-    )
+    const service = new ImageStreamerPromiseClient('http://127.0.0.1:8080')
     enableDevTools([service])
     const stream = service.streamImages(new Empty())
     stream.on('data', function (image) {
@@ -62,7 +66,7 @@ export const Raw = () => {
     function draw() {
       if (lastImage.current && canvas.current) {
         // console.time('render pb')
-        
+
         const image = lastImage.current
         if (!image) {
           return
@@ -80,5 +84,10 @@ export const Raw = () => {
     return () => cancelAnimationFrame(idRaf)
   }, [])
 
-  return <canvas ref={canvas} width={width} height={height} />
+  return (
+    <div>
+      <canvas ref={canvas} width={width} height={height} />
+      <DownloadButton getB64Content={getBase64} filePrefix="image" />
+    </div>
+  )
 }
