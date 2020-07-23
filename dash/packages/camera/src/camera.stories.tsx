@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef, useCallback } from 'react'
 // import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo'
 
-import { ProcessedImage, Empty, Ping } from './stubs/things_pb'
+import { ProcessedImage, Empty } from './stubs/things_pb'
 import { ProcessedImageStreamerPromiseClient } from './stubs/things_grpc_web_pb'
-import { DownloadButton } from './DownloadButton'
+import { DownloadButton } from './DownloadButton' 
 
 export default {
   title: 'Camera',

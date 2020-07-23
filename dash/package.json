@@ -8,8 +8,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "lerna run build",
-    "bootstrap": "lerna bootstrap",
-    "gen": "tsc genstubs.ts && node genstubs.js && rm genstubs.js"
+    "bootstrap": "lerna bootstrap"
   },
   "author": "",
   "license": "ISC",
