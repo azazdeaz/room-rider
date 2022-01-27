@@ -34,6 +34,6 @@
     "camera-controls": "^1.22.1",
     "grpc-web": "^1.1.0",
     "randomcolor": "^0.5.4",
-    "three": "^0.117.1"
+    "three": "^0.137.0"
   }
 }
