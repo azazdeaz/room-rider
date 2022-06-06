@@ -10,7 +10,7 @@ edition = "2018"
 wheels = { path = "../wheels" }
 tonic = "0.2"
 prost = "0.6"
-tokio = { version = "0.2", features = ["macros"] }
+tokio = { version = "1.8", features = ["macros"] }
 tonic-build = "0.2"
 pasts = "0.4"
 stick = "0.9"
